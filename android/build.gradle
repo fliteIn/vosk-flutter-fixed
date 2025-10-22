@@ -28,21 +28,24 @@ rootProject.allprojects {
 apply plugin: 'com.android.library'
 
 android {
-    compileSdk 33
+    namespace "org.vosk.vosk_flutter"
+    compileSdkVersion 34
 
-    namespace 'org.vosk.vosk_flutter'
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 34
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+    }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 30
-//        ndk {
-//            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86_64', 'x86'
-//        }
+    lintOptions {
+        disable 'InvalidPackage'
     }
 }
 
